@@ -12,32 +12,55 @@ struct ContentView: View {
  @State private var messageString = "When the Genius Bar needs help, they call you!"
     
     var body: some View {
-        VStack {
-            Text(messageString)
-                .font(.largeTitle)
-                .fontWeight(.heavy)
-                .minimumScaleFactor(0.5)
-                .multilineTextAlignment(.center)
-                .foregroundColor(.red)
-                .frame(height: 150)
-                .frame(maxWidth: .infinity)
-                .border(.orange, width: 1)
-                .padding()
+        ZStack{
+            Rectangle()
+                .fill(
+                    Gradient(colors: [.yellow, .blue])
+                )
+                .ignoresSafeArea()
             
-            HStack {
-                Button("Awesome") {
-                    messageString = "You are Awesome!"
-                }
-                .buttonStyle(.borderedProminent)
+            VStack {
+                Text("You Have Skills!")
+                    .font(.largeTitle)
+                    .fontWeight(.black)
+                    .foregroundColor(Color("Gold-BC"))
+                    .padding()
+                    .background(Color("Maroon-BC"))
+                    .cornerRadius(30)
                 
-                Button("Grete") {
-                    messageString = "You are Grate!"
+                Spacer()
+                
+                Text(messageString)
+                    .font(.largeTitle)
+                    .fontWeight(.heavy)
+                    .minimumScaleFactor(0.5)
+                    .multilineTextAlignment(.center)
+                    .foregroundColor(.red)
+                    .frame(height: 150)
+                    .frame(maxWidth: .infinity)
+    //                .border(.orange, width: 1)
+                    .padding()
+                
+                Spacer()
+                
+                HStack {
+                    Button("Awesome") {
+                        messageString = "You are Awesome!"
+                    }
+                    .buttonStyle(.borderedProminent)
+                    
+                    Spacer()
+                    
+                    Button("Grete") {
+                        messageString = "You are Grate!"
+                    }
+                    .buttonStyle(.borderedProminent)
                 }
-                .buttonStyle(.borderedProminent)
+    //            .border(.green, width: 3)
+                .padding()
             }
-            .border(.green, width: 3)
-           
         }
+        
     }
 }
 
