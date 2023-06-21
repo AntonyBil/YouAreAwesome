@@ -9,19 +9,34 @@ import SwiftUI
 
 struct ContentView: View {
     
- @State private var messageString = "You are Grete!"
+ @State private var messageString = "When the Genius Bar needs help, they call you!"
     
     var body: some View {
         VStack {
             Text(messageString)
                 .font(.largeTitle)
                 .fontWeight(.heavy)
+                .minimumScaleFactor(0.5)
+                .multilineTextAlignment(.center)
                 .foregroundColor(.red)
+                .frame(height: 150)
+                .frame(maxWidth: .infinity)
+                .border(.orange, width: 1)
                 .padding()
             
-            Button("Press Me") {
-                messageString = "You are Awesome!"
+            HStack {
+                Button("Awesome") {
+                    messageString = "You are Awesome!"
+                }
+                .buttonStyle(.borderedProminent)
+                
+                Button("Grete") {
+                    messageString = "You are Grate!"
+                }
+                .buttonStyle(.borderedProminent)
             }
+            .border(.green, width: 3)
+           
         }
     }
 }
