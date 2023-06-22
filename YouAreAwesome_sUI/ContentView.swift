@@ -9,26 +9,28 @@ import SwiftUI
 
 struct ContentView: View {
     
- @State private var messageString = "When the Genius Bar needs help, they call you!"
+ @State private var messageString = "Namaste"
     
     var body: some View {
-        ZStack{
-            Rectangle()
-                .fill(
-                    Gradient(colors: [.yellow, .blue])
-                )
-                .ignoresSafeArea()
-            
+        
             VStack {
-                Text("You Have Skills!")
-                    .font(.largeTitle)
-                    .fontWeight(.black)
-                    .foregroundColor(Color("Gold-BC"))
-                    .padding()
-                    .background(Color("Maroon-BC"))
-                    .cornerRadius(30)
                 
                 Spacer()
+                Image(systemName: "cloud.sun.rain.fill")
+                    .resizable()
+                    .scaledToFit()
+                    .symbolRenderingMode(.multicolor)
+                    .padding()
+                    .background(Color("SkyBlue"))
+                    .cornerRadius(30)
+                    .shadow(color: .gray, radius: 20)
+                    .overlay(
+                         RoundedRectangle(cornerRadius: 30)
+                            .stroke(.teal, lineWidth: 1)
+                    )
+                    .padding()
+                   
+                   
                 
                 Text(messageString)
                     .font(.largeTitle)
@@ -38,10 +40,19 @@ struct ContentView: View {
                     .foregroundColor(.red)
                     .frame(height: 150)
                     .frame(maxWidth: .infinity)
-    //                .border(.orange, width: 1)
                     .padding()
+                   
                 
                 Spacer()
+                
+//                Divider()
+//                    .background(.black)
+//                    .padding()
+//                    .frame(width: 150.0)
+                
+//                Rectangle()
+//                    .fill(.indigo)
+//                    .frame(width: geometry.size.width * (2/3), height: 1)
                 
                 HStack {
                     Button("Awesome") {
@@ -56,11 +67,10 @@ struct ContentView: View {
                     }
                     .buttonStyle(.borderedProminent)
                 }
-    //            .border(.green, width: 3)
+                //            .border(.green, width: 3)
                 .padding()
             }
-        }
-        
+       
     }
 }
 
